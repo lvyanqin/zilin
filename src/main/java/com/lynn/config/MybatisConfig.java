@@ -63,7 +63,7 @@ public class MybatisConfig {
     MapperScannerConfigurer mpperScannnerConfigurer() {
         MapperScannerConfigurer msc = new MapperScannerConfigurer();
         msc.setSqlSessionFactoryBeanName("sqlSessionFactory");
-        msc.setBasePackage("com.lynn.mapper");
+        msc.setBasePackage("com.lynn.dao");
         return msc;
     }
 

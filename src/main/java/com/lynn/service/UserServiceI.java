@@ -5,20 +5,14 @@
  */
 package com.lynn.service;
 
-import javax.servlet.http.HttpServletRequest;
+import com.lynn.bean.UserBean;
 
 /**
  *
  * @author Administrator
  */
-public interface WeixinServiceI {
+public interface UserServiceI {
     
-    /**
-     * 微信支付回调通知接口
-     *
-     * @param request
-     * @return
-     */
-    public String WeixinNotify(HttpServletRequest request);
+    public UserBean getUserById(Integer userId);
     
 }

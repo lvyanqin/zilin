@@ -5,8 +5,8 @@
  */
 package com.lynn.controller;
 
-import com.lynn.service.AlipayServiceI;
-import com.lynn.service.WeixinServiceI;
+import com.lynn.config.pay.AlipayServiceI;
+import com.lynn.config.pay.WeixinServiceI;
 import com.lynn.util.StaticUtil;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;

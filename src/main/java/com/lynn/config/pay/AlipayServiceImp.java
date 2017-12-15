@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.lynn.service;
+package com.lynn.config.pay;
 
 import com.lynn.config.pay.AlipayConfig;
 import com.lynn.config.pay.RSA;
