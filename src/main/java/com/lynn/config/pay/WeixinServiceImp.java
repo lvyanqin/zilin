@@ -5,9 +5,7 @@
  */
 package com.lynn.config.pay;
 
-import com.lynn.config.pay.RSA;
-import com.lynn.config.pay.WeixinConfig;
-import com.lynn.util.StaticUtil;
+import com.lynn.util.OrderUtil;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -63,7 +61,7 @@ public class WeixinServiceImp implements WeixinServiceI{
 
                         //获取商户订单号
                         String orderNumber = map.get("out_trade_no");
-                        if (orderNumber.contains(StaticUtil.PRE_SHEETSCORECHECK_ORDERNO)) {
+                        if (orderNumber.contains(OrderUtil.ORDERNO_PRE_CARD)) {
                             
                             //更新订单状态 及 其他业务逻辑
                             

@@ -11,7 +11,6 @@ package com.lynn.util;
  */
 public class StaticUtil {
     
-    public static final String PRE_SHEETSCORECHECK_ORDERNO = "001";
     
     public static final String WEB_HTTP_URL = "http://localhost:8080/";
     

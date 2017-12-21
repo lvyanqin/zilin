@@ -7,7 +7,7 @@ package com.lynn.controller;
 
 import com.lynn.config.pay.AlipayServiceI;
 import com.lynn.config.pay.WeixinServiceI;
-import com.lynn.util.StaticUtil;
+import com.lynn.util.OrderUtil;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +40,7 @@ public class Pay {
     @RequestMapping(value = {"/alipay/do", "/alipay/do/"}, produces = {"text/html;charset=UTF-8"}, method = RequestMethod.GET)
     public ModelAndView AlipayByPCWeb(String orderNumber) {
         ModelAndView mv = new ModelAndView();
-        if (orderNumber.contains(StaticUtil.PRE_SHEETSCORECHECK_ORDERNO)) {
+        if (orderNumber.contains(OrderUtil.ORDERNO_PRE_CARD)) {
 //            SheetScoreCheckOrderBean checkOrder = recommendMapper.getCheckOrderByOrderNo(orderNumber);
 //            if (checkOrder != null) {
 //                if (checkOrder.getPayState() == 1) {
@@ -89,7 +89,7 @@ public class Pay {
             String orderPrice = request.getParameter("total_fee");//金额
             //如果订单号不为空
             if (orderNumber != null) {
-                if (orderNumber.contains(StaticUtil.PRE_SHEETSCORECHECK_ORDERNO)) {//志愿把脉
+                if (orderNumber.contains(OrderUtil.ORDERNO_PRE_CARD)) {//志愿把脉
                     //更新订单状态 以及 相关业务处理
 //                    return payHelperI.updateCheckOrderBeanByIsPay(request, orderNumber, 1, Integer.parseInt(orderPrice));
 
@@ -117,7 +117,7 @@ public class Pay {
 //            log = "【支付宝支付】支付进入跳转页面，订单号为:" + request.getParameter("out_trade_no");
 //            FileUtil.writeLinesByLog(log);
             mv.addObject("orderNumber", request.getParameter("out_trade_no"));
-            if (request.getParameter("out_trade_no").contains(StaticUtil.PRE_SHEETSCORECHECK_ORDERNO)) {//志愿把脉
+            if (request.getParameter("out_trade_no").contains(OrderUtil.ORDERNO_PRE_CARD)) {
 //                log = "【支付宝支付】支付进入跳转志愿把脉成功页面，订单号为:" + request.getParameter("out_trade_no");
 //                FileUtil.writeLinesByLog(log);
                 mv.setViewName("redirect:/zhiyuan/sheetCheck/success/" + request.getParameter("out_trade_no"));

@@ -5,9 +5,7 @@
  */
 package com.lynn.config.pay;
 
-import com.lynn.config.pay.AlipayConfig;
-import com.lynn.config.pay.RSA;
-import com.lynn.util.StaticUtil;
+import com.lynn.util.OrderUtil;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -15,7 +13,6 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 /**
@@ -40,7 +37,7 @@ public class AlipayServiceImp implements AlipayServiceI {
     @Override
     public String alipayPCWebCreateUrl(String orderNumber, Double price) {
         int type = 0;
-        if (orderNumber.contains(StaticUtil.PRE_SHEETSCORECHECK_ORDERNO)) {
+        if (orderNumber.contains(OrderUtil.ORDERNO_PRE_CARD)) {
             type = 3;
         }
         Map map = new HashMap();
